@@ -8,13 +8,14 @@ Requirements:
 * Static IP or DDNS(not checked)
 * Linux
 * ~3 GB storage per hour stream on 1080p
-* Oracle JRE 8 ( may not work with OpenJRE/JDK)
+* Oracle/Open JDK 8
+* MongoDB
 
 Even Twitch-o-Matic is able to recover after an unexpected host reboot, strongly recommended to use several independent hosts at mission-critical use cases,
 
 Installation:
-1. Remove OpenJRE/JDK or other JVM's
-2. Install Oracle JRE 8. You can try to use other versions, but it's not tested.
+1. Install Oracle/Open JDK 8.
+2. 
 3. Run ```sudo curl -s https://raw.githubusercontent.com/pingwinno/Twitch-o-matic/master/easy_install.sh | sudo bash /dev/stdin ```
 4. Configure ToM via ```/etc/tom/config.prop```
 4.1. (optional) if you behind NAT forvard TwitchServer port needed.
@@ -27,7 +28,7 @@ Q: Can I setup auto-upload to cloud?
 For example - rcloud (https://rclone.org/)
 
 Q: How to record streams from multiple streamers?
-А: Run app on multiple hosts, or container instance (LXD in exmpl). Another way is manually run multiple instances of the app. Each instance needs a dedicated port.
+А: Yes. Just add comma-separated list of streamers to config file.
 
 Q: What type of streams does this app rec?
 A: Live only. Rehost, retry, and other types will be filtered.
