@@ -19,7 +19,7 @@ public class HashHandler {
 
     public static void generateKey() {
         if (!SystemUtils.IS_OS_WINDOWS) {
-            key = RandomStringUtils.randomAlphanumeric(20);
+            key = RandomStringUtils.randomNumeric(20);
             log.trace("key {}", key);
         } else {
             log.info("Hello, winboy :*");
