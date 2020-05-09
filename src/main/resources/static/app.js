@@ -44,6 +44,9 @@ let app = new Vue({
         validateStreamModal: false,
         validateStreamForm: {},
         validateStreamError: false,
+        // Settings 
+        isOpenedEditSettingsModal: false,
+        isValidateSettingsError: false,
         // Status tab
         searchStatus: "",
         headersStatus: [
@@ -287,5 +290,8 @@ let app = new Vue({
                 d.close();
             });
         },
+        openSettingsModal() {
+            this.isOpenedEditSettingsModal = true;
+        }
     }
 });

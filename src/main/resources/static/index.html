@@ -21,6 +21,7 @@
     <v-app dark>
         <v-toolbar color="cyan" tabs>
             <v-toolbar-title>Management</v-toolbar-title>
+            <v-btn depressed large color="primary" @click="openSettingsModal">Edit settings</v-btn>
             <template v-slot:extension>
                 <v-tabs v-model="tabs" centered color="cyan" slider-color="yellow">
                     <v-tab href="#server">Server</v-tab>
@@ -336,6 +337,31 @@
                     <v-btn color="error darken-1" depressed @click="unsubscribe">
                         Yes, delete
                     </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+        <v-dialog v-model="isOpenedEditSettingsModal" max-width="500">
+            <v-card>
+                <v-card-title class="headline">Validate stream</v-card-title>
+                <v-card-text>
+                    <!-- <v-text-field
+                            v-model="editSettingsForm.uuid"
+                            label="UUID"
+                            hint="Stream database ID"
+                            persistent-hint
+                    ></v-text-field>
+                    <v-checkbox
+                            v-model="editSettingsForm.skipMuted"
+                            label="Skip muted"
+                            hint="Skip muted pieces"
+                            persistent-hint
+                    ></v-checkbox> -->
+                    <v-alert :value="isValidateSettingsError" type="error">Form is incorrect.</v-alert>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="darken-1" depressed @click="cancel">Cancel</v-btn>
+                    <v-btn color="warning darken-1" depressed @click="validateStream">Edit</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
